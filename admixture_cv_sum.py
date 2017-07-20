@@ -13,13 +13,13 @@ def main():
 	input = ComLine(sys.argv[1:])
 	cvFile = CV(input.args.cv)
 	cvFile.readText()
-	cvFile.printText()
+	#cvFile.printText()
 
 	so = CVStats(cvFile.d)
 	so.calcStats()
 	so.printStats()
 
-	plot = Graphics(cvFile.d)
+	plot = Graphics(cvFile.d,input.args.cv)
 	plot.printFigure()
 
 main()

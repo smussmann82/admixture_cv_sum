@@ -26,11 +26,6 @@ class CVStats():
 			self.dmed[k] = med
 			self.dmin[k] = min(l)
 			self.dmax[k] = max(l)
-		print(self.dmeans)
-		print(self.dstdev)
-		print(self.dmed)
-		print(self.dmin)
-		print(self.dmax)
 	
 	def calcMeans(self,l):
 		total = self.calcSum(l)
@@ -64,6 +59,22 @@ class CVStats():
 			return Decimal((sl[i] + sl[i+1])/Decimal(2))
 
 	def printStats(self):
-		for k,v in self.dmeans.iteritems():
-			print(k)
-			print(round(v,4))
+		fh = open("output.txt", 'w')
+		print("K\tMean\tStDev\tMedian\tMin\tMax")
+		fh.write("K\tMean\tStDev\tMedian\tMin\tMax\n")
+		for k in xrange(1,len(self.dmeans.keys())+1):
+			print(k, "\t", round(self.dmeans[k],5), "\t", round(self.dstdev[k],5), "\t", round(self.dmed[k],5), "\t", round(self.dmin[k],5), "\t", round(self.dmax[k],5))
+			fh.write(str(k))
+			fh.write("\t")
+			fh.write(str(round(self.dmeans[k],5)))
+			fh.write("\t")
+			fh.write(str(round(self.dstdev[k],5)))
+			fh.write("\t")
+			fh.write(str(round(self.dmed[k],5)))
+			fh.write("\t")
+			fh.write(str(round(self.dmin[k],5)))
+			fh.write("\t")
+			fh.write(str(round(self.dmax[k],5)))
+			fh.write("\n")
+		
+		fh.close()
