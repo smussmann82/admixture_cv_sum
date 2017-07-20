@@ -8,7 +8,8 @@ import math
 class CVStats():
 	'Class for calculating summary statistics on CV output'
 	
-	def __init__(self, dictoflists):
+	def __init__(self, dictoflists,output):
+		self.output = output
 		self.d = dictoflists
 		self.dmeans = dict()
 		self.dstdev = dict()
@@ -59,7 +60,7 @@ class CVStats():
 			return Decimal((sl[i] + sl[i+1])/Decimal(2))
 
 	def printStats(self):
-		fh = open("output.txt", 'w')
+		fh = open(self.output, 'w')
 		print("K\tMean\tStDev\tMedian\tMin\tMax")
 		fh.write("K\tMean\tStDev\tMedian\tMin\tMax\n")
 		for k in xrange(1,len(self.dmeans.keys())+1):

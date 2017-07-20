@@ -15,7 +15,7 @@ def main():
 	cvFile.readText()
 	#cvFile.printText()
 
-	so = CVStats(cvFile.d)
+	so = CVStats(cvFile.d,input.args.out)
 	so.calcStats()
 	so.printStats()
 
