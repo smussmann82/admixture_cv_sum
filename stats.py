@@ -45,9 +45,12 @@ class CVStats():
 			dev = (val-mean)**2
 			vals.append(dev)
 		total = self.calcSum(vals)
-		temp = total/Decimal((len(l)-1))
-		stdev = Decimal(math.sqrt(temp))
-		return stdev
+		if len(l)-1 == 0:
+			return 0
+		else:
+			temp = total/Decimal((len(l)-1))
+			stdev = Decimal(math.sqrt(temp))
+			return stdev
 
 	def calcMed(self,l):
 		sl = sorted(l)
