@@ -21,7 +21,7 @@ class Graphics():
 
 	def prepData(self):
 		lists = list()
-		for k,v in self.data.iteritems():
+		for k,v in self.data.items():
 			templist = list()
 			for item in v:
 				templist.append(float(item))
