@@ -18,7 +18,7 @@ class CVStats():
 		self.dmax = dict()
 
 	def calcStats(self):
-		for k,l in self.d.iteritems():
+		for k,l in self.d.items():
 			mean = self.calcMeans(l)
 			stdev = self.calcStdev(l,mean)
 			med = self.calcMed(l)
@@ -66,7 +66,7 @@ class CVStats():
 		fh = open(self.output, 'w')
 		print("K\tMean\tStDev\tMedian\tMin\tMax")
 		fh.write("K\tMean\tStDev\tMedian\tMin\tMax\n")
-		for k in xrange(1,len(self.dmeans.keys())+1):
+		for k in range(1,len(self.dmeans.keys())+1):
 			print(k, "\t", round(self.dmeans[k],5), "\t", round(self.dstdev[k],5), "\t", round(self.dmed[k],5), "\t", round(self.dmin[k],5), "\t", round(self.dmax[k],5))
 			fh.write(str(k))
 			fh.write("\t")
