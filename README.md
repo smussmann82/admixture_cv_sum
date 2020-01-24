@@ -1,4 +1,7 @@
 # admixture_cv_sum
+
+**NOTE: This packate is deprecated and will no longer be updated. It is being merged with the admixturePipeline package. All future updates will be found at https://github.com/stevemussmann/admixturePipeline**
+
 Summarizes the output of cross-validation values for multiple runs of admixture
 
 ##Usage:
